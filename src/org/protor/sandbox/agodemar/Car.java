@@ -32,6 +32,11 @@ public class Car extends AbstractTerrestrialVehicle {
 		
 		// TODO agodemar: implement the logic here
 		
+		System.out.println("[Car]Reading data from file " +
+		configFile.getAbsolutePath());
+		
+		
+		
 		return false;
 	}
 
