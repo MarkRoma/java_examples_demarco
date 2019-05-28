@@ -9,7 +9,7 @@ import org.protor.sandbox.agodemar.EnumEngineType;
 import org.protor.sandbox.agodemar.EnumGroundContactType;
 import org.w3c.dom.Node;
 
-public class Car extends AbstractTerrestrialVehicle {
+public abstract class Car extends AbstractTerrestrialVehicle {
 
 	public Car(EnumEngineType engineType) {
 		super(engineType);
@@ -35,7 +35,7 @@ public class Car extends AbstractTerrestrialVehicle {
 	}	
 
 	@Override
-	protected boolean loadFromFile(File configFile) {
+	public void loadFromFile (File configFile) {
 
 		// TODO agodemar: implement the logic here
 
@@ -49,7 +49,6 @@ public class Car extends AbstractTerrestrialVehicle {
 
 		System.out.println("... function not implemented yet.");
 
-		return false;
 	}
 
 	@Override

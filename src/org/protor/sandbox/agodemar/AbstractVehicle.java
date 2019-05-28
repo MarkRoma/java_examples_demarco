@@ -27,7 +27,7 @@ public abstract class AbstractVehicle {
 		this.node = node;
 		this.loadFromNode(this.node); // implement in subclasses
 	}
-	protected abstract void loadFromNode(Node node); // implement in subclasses
+	protected abstract boolean loadFromNode (Node node); // implement in subclasses
 	
 	public AbstractVehicle(EnumEngineType engineType) {
 		this.engineType = engineType;
@@ -104,7 +104,7 @@ public abstract class AbstractVehicle {
 	public void setMaxPayload(double maxPayload) {
 		this.maxPayload = maxPayload;
 	}
-	protected void loadFromNode(Node node) {
+	protected abstract void loadFromNode(Node node) {
 		// TODO Auto-generated method stub
 	
 	}
