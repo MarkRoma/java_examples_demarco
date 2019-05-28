@@ -2,6 +2,8 @@ package org.protor.sandbox.agodemar;
 
 import java.io.File;
 
+import org.w3c.dom.Node;
+
 public abstract class AbstractVehicle {
 	
 	protected String name = "";
@@ -94,6 +96,10 @@ public abstract class AbstractVehicle {
 	}
 	public void setMaxPayload(double maxPayload) {
 		this.maxPayload = maxPayload;
+	}
+	protected void loadFromNode(Node node) {
+		// TODO Auto-generated method stub
+	
 	}
 
 }

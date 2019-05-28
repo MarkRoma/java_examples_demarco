@@ -2,6 +2,8 @@ package org.protor.sandbox.romano;
 
 import java.io.File;
 
+import org.w3c.dom.Node;
+
 public abstract class AbstractVehicle {
 	// Attributi della classe 
 	private String name = "";
@@ -11,7 +13,8 @@ public abstract class AbstractVehicle {
 	private int numMaxPassengers= 0;
 	private double maxPayload = 0.0; // kg
 	
-	private File configFile;
+	protected File configFile;
+	protected Node node;
 	
 	// ------------------------------ Constructors
 	public AbstractVehicle(File configFile) {
@@ -19,7 +22,14 @@ public abstract class AbstractVehicle {
 		this.configFile = configFile; // Quando lo vado ad usare questo file esiste
 		this.loadFromFile(configFile); // Funzione per leggere quel file
 	}
-	protected abstract boolean loadFromFile (File configFile);
+	protected abstract boolean loadFromFile (File configFile); // implement in subclasses 
+	
+	public AbstractVehicle(Node node) {
+		this.node = node; 
+		this.loadFromNode(this.node);  // implement in classes
+	}
+	protected abstract boolean loadFromNode (Node node); // implement in subclasses
+	
 	public AbstractVehicle(EnumEngineType type) {
 		this.engineType = type;
 	}
