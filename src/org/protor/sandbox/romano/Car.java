@@ -34,11 +34,6 @@ public class Car extends AbstractTerrestrialVehicle {
 		super(name, engineType);
 	}	
 
-	public static Car createCarFromXmlNode (Node node)	{
-
-		return null;
-	}
-
 	@Override
 	protected boolean loadFromFile(File configFile) {
 
@@ -59,7 +54,7 @@ public class Car extends AbstractTerrestrialVehicle {
 
 	@Override
 	protected void loadFromNode (Node node) {
-		if (node.getNodeType() == Node.ELEMENT_NODE ) {
+		if (node.getNodeType() == Node.ELEMENT_NODE ) { //ELEMENT_NODE è una costante final
 
 			this.name = XMLUtils.getXMLPropertyByPath(node, "// name/test()");
 
@@ -74,12 +69,32 @@ public class Car extends AbstractTerrestrialVehicle {
 					e.printStackTrace();
 					System.err.print("[Car.loadFromNode]");
 					System.out.println("Car \'" + this.name + "\' incorrect passenger number.");
+					System.err.println("Keeping default value:" + this.numMaxPassengers);
 					// do nothing, continue
 				}
 			}
-		}
-	}
+			List <String> rangeValuesList = XMLUtils.getXMLAttributesByPath(node,
+					"//range_km", "value");
 
+			if (rangeValuesList.size() > 0) 
+				try {
+					this.range = Integer.parseInt(passengersValuesList.get(0));
+				}
+			 catch (NumberFormatException e) {
+					e.printStackTrace();
+					System.err.print("[Car.loadFromNode]");
+					System.out.println("Car \'" + this.name + "\' incorrect passenger number.");
+					System.err.println("Keeping default value:" + this.range);
+					// do nothing, continue
+			
+			// .....
+			 } else {
+		System.err.print("[Car.loadFromNode]");
+		System.out.println("Node is not an ELEMENT_NODE " );
+		// do nothing, continue
+	}
+	}
+			}
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("--- Car Object ---\n");
