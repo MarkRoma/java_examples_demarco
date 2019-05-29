@@ -42,12 +42,7 @@ public abstract class Car extends AbstractTerrestrialVehicle {
 	protected void loadFromFile(File configFile) {
 		
 		// TODO agodemar: implement the logic here
-	
-		System.out.println("[Car]Reading data from file " +
-		configFile.getAbsolutePath());
 		
-		
-
 		System.out.println("[Car] Reading data from file: "
 				+ configFile.getAbsolutePath());
 		
@@ -56,7 +51,7 @@ public abstract class Car extends AbstractTerrestrialVehicle {
 	}
 
 	@Override
-	protected boolean loadFromNode(Node node) {
+	protected void loadFromNode(Node node) {
 		
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 
@@ -166,8 +161,7 @@ public abstract class Car extends AbstractTerrestrialVehicle {
 			System.err.println("Node is not an ELEMENT_NODE.");
 			System.err.println("Keeping default values.");
 			// do nothing, continue
-		}
-		return false;	
+		}	
 	}
 	
 	
@@ -180,4 +174,5 @@ public abstract class Car extends AbstractTerrestrialVehicle {
 		sb.append("------------------------\n");
 		return sb.toString();
 	}
+	
 }
