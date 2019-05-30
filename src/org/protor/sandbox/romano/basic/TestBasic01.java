@@ -71,5 +71,6 @@ public class TestBasic01 {
 			//try {
 			    for ( String s : s1b) // è un contatore elegente 
 		   System.out.println(s);
+			        
     }
 	}
