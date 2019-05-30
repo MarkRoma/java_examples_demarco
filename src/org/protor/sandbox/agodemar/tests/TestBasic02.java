@@ -37,7 +37,6 @@ public class TestBasic02 {
 		ToyC tc = new ToyC();
 		
 		List<Double> numbers = tc.calculate1a(nodes, -20.0, 89.5);
-		
 		tc.setInnerList(numbers);
 		
 		System.out.println(tc);
