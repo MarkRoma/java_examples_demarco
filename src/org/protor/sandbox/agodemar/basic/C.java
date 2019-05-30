@@ -40,5 +40,29 @@ public class C extends AbstractB {
 				.append("]") .toString();
 	}
 
-	
+	/**
+	 * get all numbers contained in an object of class C and collect them into
+	 * a list of Double. Multiply integers by a and double by b.
+	 * @param a
+	 * @param b
+	 * @return list of numbers
+	 */
+	public List<Double> getAllNumbers(double a, double b) {
+		
+		List<Double> allNumbers = new ArrayList<Double>();
+		
+		allNumbers.add((double) (this.i * a));
+		allNumbers.add(this.d * b);
+		allNumbers.add(this.f * b);
+		
+		for (int k : this.ia) {
+			allNumbers.add((double) (k * a));
+		}
+		
+		// TODO: make the math operation via Stream/map
+		allNumbers.addAll(this.l);
+		
+		return allNumbers;
+	}
+
 }
