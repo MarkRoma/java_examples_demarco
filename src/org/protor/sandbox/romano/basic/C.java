@@ -2,9 +2,10 @@ package org.protor.sandbox.romano.basic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
-public class C extends AbstractB{
+public class C extends AbstractB {
 	
 	double f ;
 	List<Double> l;
@@ -38,5 +39,33 @@ public class C extends AbstractB{
 		.append("]");
 		return sb.toString();
 	}
+	
+    /**
+     * get all numbers contained in an object of class C and collect them into
+     * a list of Double. Multiply integers by a and double by b
+     * @param a
+     * @param b
+     * @return list of Numbers
+     */
+	public  List<Double> getAllNumbers(double a, double b) {
+		
+		List<Double> allNumbers = new ArrayList<Double>(); 
+		
+		allNumbers.add((double) (this.i * a));
+		allNumbers.add(this.d * b);
+		allNumbers.add(this.f * b);
+		
+		for (int k : this.ia) {
+			allNumbers.add((double) (k * a));
+		}
+		
+		// TODO :  make the ath operation via Stream/map
+		allNumbers.addAll(this.l);
+		
+		return allNumbers ;
+		
+		}
+		
+	}
     
-}
+
