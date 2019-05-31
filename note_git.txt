@@ -21,6 +21,10 @@ git remote -v
 Una sola volta:
 git remote add upstream https://github.com/agodemar/java_examples_demarco
 
+oppure
+https://github.com/agodemar/java_examples_demarco_mvn
+
+
 Più volte:
 git fetch upstream
 
